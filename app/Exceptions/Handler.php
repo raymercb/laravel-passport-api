@@ -50,6 +50,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        // TODO Check alternatives to avoid rendering exceptions
+        if ($exception->getMessage() === 'Route [login] not defined.') {
+            return response(['message' => 'Unauthorized'], 401);
+        }
+
         return parent::render($request, $exception);
     }
 }

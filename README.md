@@ -6,12 +6,12 @@ This project explores the use of [Laravel Framework](https://laravel.com) and [L
 
 Main use cases covered:
 
-- Register/login users (should be validated).
-- Get current user information (protected route).
-- Manage notifications per user (protected routes). A notification has a status: unread/read.
-- Seed/fake 100 different users.
-- Use an external API (protected routes).
-- Create a command that clears all notifications for all users.
+- [x] Register/login users (should be validated).
+- [x] Get current user information (protected route).
+- [x] Manage notifications per user (protected routes). A notification has a status: unread/read.
+- [ ] Seed/fake 100 different users.
+- [ ] Use an external API (protected routes).
+- [ ] Create a command that clears all notifications for all users.
 
 ## Requirements
 
@@ -60,3 +60,11 @@ php artisan passport:install
 ```
 
 The encryption keys needed to generate secure access tokens will be generated. The "personal access" and "password grant" clients, used to generate access tokens, will also be created.
+
+### Using Postman
+
+[Postman](https://www.postman.com) can be used to test this API. Import the collection and environment in the `/docs` folder (*Laravel Passport API.postman_collection.json* and *Laravel Passport API.postman_environment.json*). You will see these endpoints:
+
+![image](./docs/postman_requests.png)
+
+The first steps should be **register** a new user and **login** with it. Note that after login the *access_token* will be set in the environment. This will allow the other endpoints to use that *access_token* without having to do anything else.
