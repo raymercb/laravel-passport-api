@@ -9,7 +9,7 @@ Main use cases covered:
 - [x] Register/login users (should be validated).
 - [x] Get current user information (protected route).
 - [x] Manage notifications per user (protected routes). A notification has a status: unread/read.
-- [ ] Seed/fake 100 different users.
+- [x] Seed/fake 100 different users.
 - [ ] Use an external API (protected routes).
 - [ ] Create a command that clears all notifications for all users.
 
@@ -68,3 +68,13 @@ The encryption keys needed to generate secure access tokens will be generated. T
 ![image](./docs/postman_requests.png)
 
 The first steps should be **register** a new user and **login** with it. Note that after login the *access_token* will be set in the environment. This will allow the other endpoints to use that *access_token* without having to do anything else.
+
+### Seeding the database
+
+The following command can be used to seed the database with 100 users:
+
+```sh
+php artisan db:seed --class=UsersTableSeeder
+```
+
+After this, it will be possible to login with any email generated in the `users` table and the password: `123`.
