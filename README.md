@@ -11,7 +11,7 @@ Main use cases covered:
 - [x] Manage notifications per user (protected routes). A notification has a status: unread/read.
 - [x] Seed/fake 100 different users.
 - [ ] Use an external API (protected routes).
-- [ ] Create a command that clears all notifications for all users.
+- [x] Create a command that clears all notifications for all users.
 
 ## Requirements
 
@@ -78,3 +78,13 @@ php artisan db:seed --class=UsersTableSeeder
 ```
 
 After this, it will be possible to login with any email generated in the `users` table and the password: `123`.
+
+### Clear notifications
+
+To clear all notifications for all users, execute the following command:
+
+```sh
+php artisan clear:notifications
+```
+
+It will remove all notifications in the database.
