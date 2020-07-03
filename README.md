@@ -94,3 +94,8 @@ It will remove all notifications in the database.
 The `/api/businesses/*` endpoints can be used to return information about businesses in the [YELP Fusion API](https://www.yelp.com/developers/documentation/v3/get_started). You will need to create an application following the [Authentication process](https://www.yelp.com/developers/documentation/v3/authentication), and add the API Key of this application to `YELP_API_KEY` in the `.env` file. After this setup, the businesses endpoints can be used in a similar way to the original API, as you can see in the following image:
 
 ![image](./docs/postman_businesses_search.png)
+
+### Next steps
+
+- [ ] Explore [Testing](https://laravel.com/docs/7.x/testing).
+- [ ] Explore [Homestead](https://laravel.com/docs/7.x/homestead) and [Valet](https://laravel.com/docs/7.x/valet).
