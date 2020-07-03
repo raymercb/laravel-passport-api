@@ -19,7 +19,7 @@ class NotificationController extends Controller
     public function index()
     {
         $notifications = Notification::where('user_id', '=', Auth::user()->id)->get();
-        return response([ 'notifications' => NotificationResource::collection($notifications), 'message' => 'Retrieved successfully'], 200);
+        return response(['notifications' => NotificationResource::collection($notifications), 'message' => 'Retrieved successfully'], 200);
     }
 
     /**
@@ -38,13 +38,13 @@ class NotificationController extends Controller
             'status' => 'in:unread,read'
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return response(['error' => $validator->errors(), 'Validation Error']);
         }
 
         $notification = Notification::create($data);
 
-        return response([ 'notification' => new NotificationResource($notification), 'message' => 'Created successfully'], 200);
+        return response(['notification' => new NotificationResource($notification), 'message' => 'Created successfully'], 200);
     }
 
     /**
@@ -56,10 +56,10 @@ class NotificationController extends Controller
     public function show(Notification $notification)
     {
         if ($notification->getOriginal()['user_id'] !== Auth::user()->id) {
-            return response(['message' => 'Forbidden'], 403);
+            return response(['error' => 'Forbidden'], 403);
         }
 
-        return response([ 'notification' => new NotificationResource($notification), 'message' => 'Retrieved successfully'], 200);
+        return response(['notification' => new NotificationResource($notification), 'message' => 'Retrieved successfully'], 200);
     }
 
     /**
@@ -73,7 +73,7 @@ class NotificationController extends Controller
     {
         $loggedInUserId = Auth::user()->id;
         if ($notification->getOriginal()['user_id'] !== $loggedInUserId) {
-            return response(['message' => 'Forbidden'], 403);
+            return response(['error' => 'Forbidden'], 403);
         }
 
         $data = $request->all();
@@ -81,7 +81,7 @@ class NotificationController extends Controller
 
         $notification->update($data);
 
-        return response([ 'notification' => new NotificationResource($notification), 'message' => 'Retrieved successfully'], 200);
+        return response(['notification' => new NotificationResource($notification), 'message' => 'Retrieved successfully'], 200);
     }
 
     /**
@@ -93,7 +93,7 @@ class NotificationController extends Controller
     public function destroy(Notification $notification)
     {
         if ($notification->getOriginal()['user_id'] !== Auth::user()->id) {
-            return response(['message' => 'Forbidden'], 403);
+            return response(['error' => 'Forbidden'], 403);
         }
 
         $notification->delete();

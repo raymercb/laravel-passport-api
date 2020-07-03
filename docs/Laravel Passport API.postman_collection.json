@@ -194,6 +194,213 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "businesses",
+			"item": [
+				{
+					"name": "businesses/search",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{bearer}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/businesses/search?location=Miami",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"businesses",
+								"search"
+							],
+							"query": [
+								{
+									"key": "location",
+									"value": "Miami"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "businesses/search/phone",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{bearer}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/businesses/search/phone?phone=+14159083801",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"businesses",
+								"search",
+								"phone"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "+14159083801"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "businesses/{id}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{bearer}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/businesses/1h8-r9cLeXxW99HhlRUnlA",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"businesses",
+								"1h8-r9cLeXxW99HhlRUnlA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "businesses/{id}/reviews",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{bearer}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/businesses/1h8-r9cLeXxW99HhlRUnlA/reviews",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"businesses",
+								"1h8-r9cLeXxW99HhlRUnlA",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "businesses/matches",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{bearer}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/businesses/matches?name=Gary Danko&address1=800 N Point St&city=San Francisco&state=CA&country=US",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"businesses",
+								"matches"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Gary Danko"
+								},
+								{
+									"key": "address1",
+									"value": "800 N Point St"
+								},
+								{
+									"key": "city",
+									"value": "San Francisco"
+								},
+								{
+									"key": "state",
+									"value": "CA"
+								},
+								{
+									"key": "country",
+									"value": "US"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "register",
 			"request": {
 				"method": "POST",

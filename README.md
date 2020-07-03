@@ -10,8 +10,8 @@ Main use cases covered:
 - [x] Get current user information (protected route).
 - [x] Manage notifications per user (protected routes). A notification has a status: unread/read.
 - [x] Seed/fake 100 different users.
-- [ ] Use an external API (protected routes).
 - [x] Create a command that clears all notifications for all users.
+- [x] Use an external API (protected routes).
 
 ## Requirements
 
@@ -63,7 +63,7 @@ The encryption keys needed to generate secure access tokens will be generated. T
 
 ### Using Postman
 
-[Postman](https://www.postman.com) can be used to test this API. Import the collection and environment in the `/docs` folder (*Laravel Passport API.postman_collection.json* and *Laravel Passport API.postman_environment.json*). You will see these endpoints:
+[Postman](https://www.postman.com) can be used to test this API. Import the collection and environment in the `/docs` folder (`Laravel Passport API.postman_collection.json` and `Laravel Passport API.postman_environment.json`). You will see these endpoints:
 
 ![image](./docs/postman_requests.png)
 
@@ -88,3 +88,9 @@ php artisan clear:notifications
 ```
 
 It will remove all notifications in the database.
+
+### Yelp Businesses
+
+The `/api/businesses/*` endpoints can be used to return information about businesses in the [YELP Fusion API](https://www.yelp.com/developers/documentation/v3/get_started). You will need to create an application following the [Authentication process](https://www.yelp.com/developers/documentation/v3/authentication), and add the API Key of this application to `YELP_API_KEY` in the `.env` file. After this setup, the businesses endpoints can be used in a similar way to the original API, as you can see in the following image:
+
+![image](./docs/postman_businesses_search.png)

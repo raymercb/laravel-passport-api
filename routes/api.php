@@ -14,11 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::apiResource('/notifications', 'Api\NotificationController');
+
+    Route::get('/businesses/search', 'Api\BusinessesController@index');
+    Route::get('/businesses/search/phone', 'Api\BusinessesController@index');
+    Route::get('/businesses/{id}', 'Api\BusinessesController@index');
+    Route::get('/businesses/{id}/reviews', 'Api\BusinessesController@index');
+    Route::get('/businesses/matches', 'Api\BusinessesController@index');
 });
 
 Route::post('/register', 'Api\AuthController@register');
 Route::post('/login', 'Api\AuthController@login');
-
-Route::apiResource('/notifications', 'Api\NotificationController')->middleware('auth:api');
